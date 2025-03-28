@@ -88,3 +88,14 @@ function viewStock(symbol, stocks) {
         }
     }
 }
+// Delete button event listener
+document.querySelector('#deleteButton').addEventListener('click', (event) => {
+    event.preventDefault();
+    const userId = document.querySelector('#userID').value;
+    const userIndex = userData.findIndex(user => user.id == userId);
+
+    if (userIndex !== -1) {
+        userData.splice(userIndex, 1);
+        generateUserList(userData, stocksData);
+    }
+});
