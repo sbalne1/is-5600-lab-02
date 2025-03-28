@@ -25,3 +25,13 @@ function generateUserList(users, stocks) {
     // Register event listener on user list
     userList.addEventListener('click', (event) => handleUserListClick(event, users, stocks));
 }
+// Function to handle user list click
+function handleUserListClick(event, users, stocks) {
+    const userId = event.target.id;
+    const user = users.find(user => user.id == userId);
+
+    if (user) {
+        populateForm(user);
+        renderPortfolio(user, stocks);
+    }
+}
