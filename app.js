@@ -99,3 +99,20 @@ document.querySelector('#deleteButton').addEventListener('click', (event) => {
         generateUserList(userData, stocksData);
     }
 });
+// Save button event listener
+document.querySelector('#saveButton').addEventListener('click', (event) => {
+    event.preventDefault();
+    const id = document.querySelector('#userID').value;
+
+    for (let i = 0; i < userData.length; i++) {
+        if (userData[i].id == id) {
+            userData[i].user.firstname = document.querySelector('#firstname').value;
+            userData[i].user.lastname = document.querySelector('#lastname').value;
+            userData[i].user.address = document.querySelector('#address').value;
+            userData[i].user.city = document.querySelector('#city').value;
+            userData[i].user.email = document.querySelector('#email').value;
+
+            generateUserList(userData, stocksData);
+        }
+    }
+});
