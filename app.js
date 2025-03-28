@@ -10,3 +10,18 @@ document.addEventListener('DOMContentLoaded', () => {
         handleUserListClick(event, userData, stocksData)
     );
 });
+// Function to generate user list
+function generateUserList(users, stocks) {
+    const userList = document.querySelector('.user-list');
+    userList.innerHTML = ''; // Clear previous list
+
+    users.forEach(({ user, id }) => {
+        const listItem = document.createElement('li');
+        listItem.innerText = `${user.lastname}, ${user.firstname}`;
+        listItem.setAttribute('id', id);
+        userList.appendChild(listItem);
+    });
+
+    // Register event listener on user list
+    userList.addEventListener('click', (event) => handleUserListClick(event, users, stocks));
+}
